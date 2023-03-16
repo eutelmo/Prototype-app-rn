@@ -1,5 +1,10 @@
-
-import { NavigationContainer } from "@react-navigation/native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import {
+  NavigationContainer,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+} from "@react-navigation/native";
 
 //Fonts Import
 import { useFonts } from "expo-font";
@@ -16,15 +21,14 @@ import Ambiente from "./routes/ambienteStack";
 import Ciencia from "./routes/cienciaStack";
 import Cultura from "./routes/culturaStack";
 import Desporto from "./routes/desportoStack";
-import Dica from "./routes/dicasStack";
 import Estilos from "./routes/estilosStack";
 import Gastroniomia from "./routes/gastronomiaStack";
-import Insolito from "./routes/insolitoStack";
 import Saude from "./routes/saudeStack";
 import Sociedade from "./routes/sociedadeStack";
 
 // import Header
 import Header from "./shared/header";
+import { globalStyles } from "./styles/global";
 
 export default function App() {
   //Fonts Import loader
@@ -38,6 +42,7 @@ export default function App() {
   const Tab = createMaterialTopTabNavigator();
   const TabsNavigate = () => {
     return (
+ 
       <Tab.Navigator
         initialRouteName="home"
         tabBarPosition="top"
@@ -58,16 +63,15 @@ export default function App() {
       >
         <Tab.Screen name="home" component={Home} />
         <Tab.Screen name="GASTRONOMIA" component={Gastroniomia} />
-        <Tab.Screen name="ESTILOS DE VIA" component={Estilos} />
+        <Tab.Screen name="ESTILOS DE VIdA" component={Estilos} />
         <Tab.Screen name="SOCIEDADE" component={Sociedade} />
         <Tab.Screen name="CULTURA" component={Cultura} />
         <Tab.Screen name="DESPORTO" component={Desporto} />
-        <Tab.Screen name="INSÓLITO" component={Insolito} />
-        <Tab.Screen name="BOAS DICAS" component={Dica} />
         <Tab.Screen name="CIÊNCIA" component={Ciencia} />
         <Tab.Screen name="SAÚDE" component={Saude} />
         <Tab.Screen name="AMBIENTE" component={Ambiente} />
       </Tab.Navigator>
+  
     );
   };
 
@@ -79,7 +83,7 @@ export default function App() {
   }
 
   return (
-
+    <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
@@ -95,6 +99,6 @@ export default function App() {
           <Stack.Screen name="Tabs" component={TabsNavigate} />
         </Stack.Navigator>
       </NavigationContainer>
-   
+    </SafeAreaProvider>
   );
 }

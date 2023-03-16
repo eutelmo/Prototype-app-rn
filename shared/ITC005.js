@@ -9,12 +9,14 @@ import {
 
 import { FadeLoading } from "react-native-fade-loading";
 
-export default function ITC005({props}) {
+export default function ITC005(props) {
   const Open = () => {
     //Do a function when click on PubBox
     console.log("Open");
   };
   const [loading, setLoading] = useState(false);
+
+  const image = { uri: props.img };
 
   return (
     <>
@@ -27,18 +29,13 @@ export default function ITC005({props}) {
         />
       ) : (
         <TouchableOpacity onPress={() => Open()}>
-          <ImageBackground
-            source={require(props.img)}
-            style={styles.imageBackground}
-          >
+          <ImageBackground source={image} style={styles.imageBackground}>
             <View style={styles.textBox}>
               <Text style={styles.category}>{props.category}</Text>
-              <Text style={styles.title}>
-              {props.title}
-              </Text>
+              <Text style={styles.title}>{props.title}</Text>
               <View style={styles.dateReadBox}>
                 <Text style={styles.infos}>{props.date}</Text>
-                <Text style={styles.infos}>Read: {props.readTime}</Text>
+                <Text style={styles.infos}>Read: {props.readTime}min</Text>
               </View>
             </View>
           </ImageBackground>
@@ -50,8 +47,9 @@ export default function ITC005({props}) {
 
 const styles = StyleSheet.create({
   imageBackground: {
-    width: 348,
+    width: "100%",
     height: 189,
+    marginBottom: 10,
   },
   textBox: {
     height: "100%",

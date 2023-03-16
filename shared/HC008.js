@@ -4,13 +4,22 @@ import { globalStyles } from "../styles/global";
 
 import { FadeLoading } from "react-native-fade-loading";
 
-export default function HC008({ props }) {
+export default function HC008(props) {
   const Open = () => {
     //Do a function when click on PubBox
     console.log("Open");
   };
 
   const [loading, setLoading] = useState(false);
+
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const d = new Date(props.date);
+
+  const dataFormated = d.toLocaleString("en-US", options);
 
   return (
     <>
@@ -37,14 +46,14 @@ export default function HC008({ props }) {
           />
         </>
       ) : (
-        <TouchableOpacity onPress={() => Open()}>
-          <Image style={styles.imgBox} source={require(props.img)} />
+        <TouchableOpacity style={styles.hc008} onPress={() => Open()}>
+          <Image style={styles.imgBox} src={props.img} />
           <View style={styles.textBox}>
             <Text style={styles.category}>{props.category}</Text>
             <Text style={styles.title}>{props.title}</Text>
             <View style={styles.dateReadBox}>
               <Text style={styles.infos}>{props.date}</Text>
-              <Text style={styles.infos}>Read: {props.readTime}</Text>
+              <Text style={styles.infos}>Read: {props.readTime}min</Text>
             </View>
           </View>
         </TouchableOpacity>
@@ -54,8 +63,13 @@ export default function HC008({ props }) {
 }
 
 const styles = StyleSheet.create({
+  hc008: {
+    flex: 3,
+    marginBottom: 10,
+    width: "100%",
+  },
   imgBox: {
-    width: 348,
+    width: "100%",
     height: 189,
   },
   textBox: {

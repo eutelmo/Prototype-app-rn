@@ -3,9 +3,9 @@ import { StyleSheet } from "react-native";
 
 export const globalStyles = StyleSheet.create({
   skContainer: {
-    flex: 1,
+    paddingTop: 20,
     paddingHorizontal: 20,
-    gap: 10,
+
   },
   TextRegular: {
     fontFamily: "RegularFont",
@@ -16,5 +16,19 @@ export const globalStyles = StyleSheet.create({
   TextBold: {
     fontFamily: "BoldFont",
   },
- 
+
+  titleCategory: {
+    fontFamily: "BoldFont",
+    fontSize: 26,
+    paddingBottom: 20,
+    textDecorationLine: "underline",
+    textDecorationStyle: "solid",
+    textDecorationColor: "#06EA80",
+  },
+
+  loading: {
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "10%",
+  },
 });
