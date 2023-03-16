@@ -10,13 +10,13 @@ import {
 
 import Pub from "../pub";
 
-export default function articleOpen(props) {
+export default function ArticleOpen(props) {
   return (
     <ScrollView>
-      <Text style={styles.titles}>{props.title}</Text>
-      <Image style={styles.Image} source={{ uri: props.image }} />
+      <Text style={styles.title}>{props.title}</Text>
+      <Image style={styles.Image} src={props.image} />
       <View style={styles.readDateBox}>
-        <Text style={styles.readDate}>Leitura: {props.read}</Text>
+        <Text style={styles.readDate}>Leitura: {props.read}min</Text>
         <Text style={styles.readDate}>{props.date}</Text>
       </View>
       <Text style={styles.info}>{props.description}</Text>
@@ -45,4 +45,35 @@ export default function articleOpen(props) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  title: {
+    fontFamily: "BoldFont",
+    fontSize: 26,
+    marginBottom: 16,
+  },
+  Image: {
+    width: 375,
+    height: 375,
+    resizeMode: "cover",
+    marginBottom: 10,
+  },
+  readDateBox: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    borderBottomColor: "#949494",
+    borderBottomWidth: 2,
+    marginBottom: 30,
+  },
+  readDate: {
+    color: "#949494",
+    marginBottom: 10,
+  },
+  info: {
+    fontSize: 20,
+    marginBottom: 26,
+  },
+  body: {
+    fontSize: 16,
+    marginBottom: 50,
+  },
+});
