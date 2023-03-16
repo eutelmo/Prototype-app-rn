@@ -1,7 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
 
 import Category from "../screens/gastronomia";
-import Open from "../screens/gastronomiaOpen";
+import Open from "../screens/openArticle";
 
 const Stack = createStackNavigator();
 
@@ -14,7 +14,7 @@ export default function GastronomiaStack() {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Gastronomia"
+        name="openArticle"
         component={Open}
         options={{
           headerShown: true,

@@ -91,9 +91,7 @@ export default function App() {
             tabBarPressColor: "#333",
             tabBarScrollEnabled: false,
             swipeEnabled: true,
-            header: (navigation) => {
-              return <Header navigation={navigation} />;
-            },
+            header: Header
           }}
         >
           <Stack.Screen name="Tabs" component={TabsNavigate} />

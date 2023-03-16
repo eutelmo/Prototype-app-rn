@@ -1,11 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import { ScrollView } from "react-navigation";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 
-import HC008 from "../HC008";
-import Pub from "../../shared/pub";
+import Pub from "../pub";
 
-export default function articleOpen({ props }) {
+export default function articleOpen(props) {
   return (
     <ScrollView>
       <Text style={styles.titles}>{props.title}</Text>

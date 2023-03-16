@@ -55,6 +55,7 @@ export default function Home() {
                     title={post.l10n[0].title}
                     date={post.l10n[0].publishedAt}
                     readTime={post.l10n[0].readTime}
+                    onPress={() => console.log(post)}
                   />
                 ) : (
                   <ITC005
@@ -63,6 +64,7 @@ export default function Home() {
                     title={post.l10n[0].title}
                     date={post.l10n[0].publishedAt}
                     readTime={post.l10n[0].readTime}
+                    onPress={() => console.log(post)}
                   />
                 )}
               </View>

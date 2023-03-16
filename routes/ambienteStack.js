@@ -1,7 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
 
 import Ambiente from "../screens/ambiente";
-import AmbienteOpen from "../screens/ambienteOpen";
+import AmbienteOpen from "../screens/openArticle";
 
 const Stack = createStackNavigator();
 
@@ -14,7 +14,7 @@ export default function AmbienteStack() {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="AMBIENTE E SUSTENTABILIDADE"
+        name="openArticle"
         component={AmbienteOpen}
         options={{
           headerShown: true,

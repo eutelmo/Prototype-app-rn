@@ -1,7 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
 
 import Category from "../screens/ciencia";
-import Open from "../screens/cienciaOpen";
+import Open from "../screens/openArticle";
 
 const Stack = createStackNavigator();
 
@@ -14,7 +14,7 @@ export default function CienciaStack() {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="CIÊNCIA E TECNOLOGIA"
+        name="openArticle"
         component={Open}
         options={{
           headerShown: true,

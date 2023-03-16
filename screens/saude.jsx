@@ -56,6 +56,7 @@ export default function Saude() {
                 title={post.l10n[0].title}
                 date={post.l10n[0].publishedAt}
                 readTime={post.l10n[0].readTime}
+                onPress={post}
               />
             </View>
           ))}

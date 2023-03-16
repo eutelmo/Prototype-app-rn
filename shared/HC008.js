@@ -46,7 +46,7 @@ export default function HC008(props) {
           />
         </>
       ) : (
-        <TouchableOpacity style={styles.hc008} onPress={() => Open()}>
+        <TouchableOpacity style={styles.hc008} onPress={props.onPress}>
           <Image style={styles.imgBox} src={props.img} />
           <View style={styles.textBox}>
             <Text style={styles.category}>{props.category}</Text>
