@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   ScrollView,
   SafeAreaView,
+  FlatList,
 } from "react-native";
 
 import { globalStyles } from "../styles/global";
@@ -18,18 +19,23 @@ import HC008 from "../shared/HC008";
 import ITC005 from "../shared/ITC005";
 
 export default function Home({ navigation }) {
-  const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [posts, setPosts] = useState([]);
   const [error, setError] = useState();
+  const [page, setPage] = useState(1);
 
   const getAll = async () => {
+    setIsLoading(true);
+
     const allPost = await fetch(
-      `https://posts2-api.global.ssl.fastly.net/1/posts?apikey=${API_KEY}&apitoken=${API_TOKEN}&include=bodies,tags,photos,albums,authors,labels,audios,documents,dossiers,collections&filter[isoLanguage]=pt`
+      `https://posts2-api.global.ssl.fastly.net/1/posts?apikey=${API_KEY}&apitoken=${API_TOKEN}&per_page=12&page=${page}&&include=bodies,tags,photos,albums,authors,labels,audios,documents,dossiers,collections&filter[isoLanguage]=pt`
     );
 
     const data = await allPost.json();
 
-    setPosts(data);
+    setPosts([...posts, ...data.data]);
+    setPage(page + 1);
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -37,30 +43,47 @@ export default function Home({ navigation }) {
   }, []);
 
   return (
-    <ScrollView style={globalStyles.skContainer}>
-      {posts?.data?.map((post, index) => (
-        <View key={post.l10n[0].id}>
-          {index >= 1 ? (
+    <View style={globalStyles.skContainer}>
+      <FlatList
+        data={posts}
+        keyExtractor={(item) => String(item.id)}
+        renderItem={({ item, index }) =>
+          index >= 1 ? (
             <HC008
-              img={post.baseUrl + "/" + post.l10n[0].image}
-              category={post.dossiers[0].managementName}
-              title={post.l10n[0].title}
-              date={post.l10n[0].publishedAt}
-              readTime={post.l10n[0].readTime}
-              onPress={() => navigation.navigate("openArticle", { post: post })}
+              img={item.baseUrl + "/" + item.l10n[0].image}
+              category={item.dossiers[0].managementName}
+              title={item.l10n[0].title}
+              date={item.l10n[0].publishedAt}
+              readTime={item.l10n[0].readTime}
+              onPress={() => navigation.navigate("openArticle", { post: item })}
             />
           ) : (
             <ITC005
-              img={post.baseUrl + "/" + post.l10n[0].image}
-              category={post.dossiers[0].managementName}
-              title={post.l10n[0].title}
-              date={post.l10n[0].publishedAt}
-              readTime={post.l10n[0].readTime}
-              onPress={() => navigation.navigate("openArticle", { post: post })}
+              img={item.baseUrl + "/" + item.l10n[0].image}
+              category={item.dossiers[0].managementName}
+              title={item.l10n[0].title}
+              date={item.l10n[0].publishedAt}
+              readTime={item.l10n[0].readTime}
+              onPress={() => navigation.navigate("openArticle", { post: item })}
             />
-          )}
-        </View>
-      ))}
-    </ScrollView>
+          )
+        }
+        onEndReached={getAll}
+        onEndReachedThreshold={0.2}
+        ListFooterComponent={<FooterLoading Loading={isLoading} />}
+      />
+    </View>
+  );
+}
+
+function FooterLoading({ Loading }) {
+  if (!Loading) return null;
+
+  return (
+    <ActivityIndicator
+      style={globalStyles.loading}
+      size="large"
+      color="#00ff00"
+    />
   );
 }
