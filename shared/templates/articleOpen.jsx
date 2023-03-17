@@ -38,7 +38,6 @@ export default function ArticleOpen(props) {
           />
         </View>
       )}
-
       <Pub />
       <Pub />
     </ScrollView>
