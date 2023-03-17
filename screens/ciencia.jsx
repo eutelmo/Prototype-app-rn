@@ -13,7 +13,7 @@ import { APP_NAME, API_TOKEN, API_KEY } from "@env";
 
 import HC008 from "../shared/HC008";
 
-export default function Ciencia() {
+export default function Ciencia({navigation}) {
   const [posts, setPosts] = useState([]);
 
   const getAll = async () => {
@@ -40,7 +40,7 @@ export default function Ciencia() {
             title={post.l10n[0].title}
             date={post.l10n[0].publishedAt}
             readTime={post.l10n[0].readTime}
-            onPress={post}
+            onPress={() => navigation.navigate("openArticle", {post:post})}
           />
         </View>
       ))}

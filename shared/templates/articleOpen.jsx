@@ -6,41 +6,68 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  FlatList,
 } from "react-native";
+import RenderHtml from "react-native-render-html";
 
 import Pub from "../pub";
 
 export default function ArticleOpen(props) {
-  return (
-    <ScrollView>
-      <Text style={styles.title}>{props.title}</Text>
-      <Image style={styles.Image} src={props.image} />
-      <View style={styles.readDateBox}>
-        <Text style={styles.readDate}>Leitura: {props.read}min</Text>
-        <Text style={styles.readDate}>{props.date}</Text>
-      </View>
-      <Text style={styles.info}>{props.description}</Text>
-      <Text style={styles.body}>{props.body}</Text>
+  // const body = props.body;
 
-      {!!props.tags ? (
-        <Text></Text>
-      ) : (
-        <View style={styles.tagsBody}>
-          <Image style={styles.tagIcon} source={require("")} />
-          <Text>tags: </Text>
-          <FlatList
-            data={props.tags}
-            renderItem={({ item }) => (
-              <TouchableOpacity onPress={() => console.log("tag")}>
-                <Text style={styles.tags}>{item.tag}</Text>
-              </TouchableOpacity>
-            )}
-          />
+  console.log(props.tags[0].name);
+
+  const source = {
+    html: `${props.body}`,
+  };
+
+  const TabStyles = {
+    body: {
+      fontSize: 16,
+      marginBottom: 50,
+    },
+    a: {
+      color: "#1F1F1F",
+      fontWeight: "bold",
+
+      textDecorationLine: "underline",
+      textDecorationStyle: "solid",
+      textDecorationColor: "#06EA80",
+    },
+  };
+
+  return (
+    <>
+      <ScrollView>
+        <Text style={styles.title}>{props.title}</Text>
+        <Image style={styles.Image} src={props.image} />
+        <View style={styles.readDateBox}>
+          <Text style={styles.readDate}>Leitura: {props.read}min</Text>
+          <Text style={styles.readDate}>{props.date}</Text>
         </View>
-      )}
-      <Pub />
-      <Pub />
-    </ScrollView>
+        <Text style={styles.info}>{props.description}</Text>
+        {/* <Text style={styles.body}>{props.body}</Text> */}
+        <RenderHtml tagsStyles={(styles.body, TabStyles)} source={source} />
+
+        {props.tags === undefined || props.tags.length === 0 ? (
+          <Text>no Tags</Text>
+        ) : (
+          <View style={styles.tagsBody}>
+            <Text style={styles.tagLabel}>tags: </Text>
+            {props.tags.map((item) =>{
+              <TouchableOpacity onPress={() => console.log("tag")}>
+                  <Text style={styles.tags}>{item.name}</Text>
+                </TouchableOpacity>
+            })}
+                  <Text style={styles.tags}>ola</Text>
+            
+          </View>
+        )}
+
+        <Pub />
+        <Pub />
+      </ScrollView>
+    </>
   );
 }
 
@@ -53,7 +80,6 @@ const styles = StyleSheet.create({
   Image: {
     width: 375,
     height: 375,
-    resizeMode: "cover",
     marginBottom: 10,
   },
   readDateBox: {
@@ -74,5 +100,19 @@ const styles = StyleSheet.create({
   body: {
     fontSize: 16,
     marginBottom: 50,
+  },
+  tagsBody: {
+    flexDirection: "row",
+  },
+  tagLabel: {
+    fontSize: 16,
+    color: "#CBCBCB",
+  },
+  tags: {
+    fontSize: 16,
+    textDecorationLine: "underline",
+    textDecorationStyle: "solid",
+    textDecorationColor: "#06EA80",
+    color: "#06EA80",
   },
 });

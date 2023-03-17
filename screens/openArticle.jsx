@@ -8,12 +8,13 @@ import { globalStyles } from "../styles/global";
 
 import { APP_NAME, API_TOKEN, API_KEY } from "@env";
 
-export default function openArticle({ route }) {
+export default function OpenArticle({ route }) {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
 
   const { post } = route.params;
+ 
 
   return (
     <SafeAreaView>

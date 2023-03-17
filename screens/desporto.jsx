@@ -14,7 +14,7 @@ import { APP_NAME, API_TOKEN, API_KEY } from "@env";
 
 import HC008 from "../shared/HC008";
 
-export default function Desporto() {
+export default function Desporto({navigation}) {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
@@ -58,7 +58,7 @@ export default function Desporto() {
                 title={post.l10n[0].title}
                 date={post.l10n[0].publishedAt}
                 readTime={post.l10n[0].readTime}
-                onPress={post}
+                onPress={() => navigation.navigate("openArticle", {post:post})}
               />
             </View>
           ))}

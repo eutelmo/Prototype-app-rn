@@ -6,6 +6,8 @@ import {
   Text,
 } from "@react-navigation/native";
 
+import { WebView } from "react-native-webview";
+
 //Fonts Import
 import { useFonts } from "expo-font";
 
@@ -64,7 +66,7 @@ export default function App() {
         <Tab.Screen name="home" component={Home} />
         <Tab.Screen name="GASTRONOMIA" component={Gastroniomia} />
         <Tab.Screen name="ESTILOS DE VIdA" component={Estilos} />
-        <Tab.Screen name="SOCIEDADE" component={Sociedade} />
+        {/* <Tab.Screen name="SOCIEDADE" component={Sociedade} /> */}
         <Tab.Screen name="CULTURA" component={Cultura} />
         <Tab.Screen name="DESPORTO" component={Desporto} />
         <Tab.Screen name="CIÊNCIA" component={Ciencia} />
