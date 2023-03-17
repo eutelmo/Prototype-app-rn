@@ -4,14 +4,12 @@ import {
   ActivityIndicator,
   Text,
   View,
-  Image,
-  TouchableOpacity,
   ScrollView,
   SafeAreaView,
 } from "react-native";
 
 import { globalStyles } from "../styles/global";
-import { APP_NAME, API_TOKEN, API_KEY } from "@env";
+import {  API_TOKEN, API_KEY } from "@env";
 
 import HC008 from "../shared/HC008";
 
