@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, SafeAreaView } from "r
 import { globalStyles } from "../styles/global";
 
 
-export default function Header(navigation) {
+export default function Header({navigation}) {
   return (
     <SafeAreaView>
       <TouchableOpacity
