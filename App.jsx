@@ -83,8 +83,8 @@ export default function App() {
   }
 
   return (
-    <SafeAreaProvider>
-      <NavigationContainer>
+    <SafeAreaProvider >
+      <NavigationContainer >
         <Stack.Navigator
           screenOptions={{
             tabBarAndroidRipple: { borderless: false },

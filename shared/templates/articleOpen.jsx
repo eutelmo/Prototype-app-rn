@@ -15,7 +15,7 @@ import { globalStyles } from "../../styles/global";
 import Pub from "../pub";
 
 export default function ArticleOpen(props) {
-   console.log(props);
+  console.log(props.tags);
 
   const source = {
     html: `${props.body}`,
@@ -48,20 +48,19 @@ export default function ArticleOpen(props) {
         <Text style={styles.info}>{props.description}</Text>
         {/* <Text style={styles.body}>{props.body}</Text> */}
         <RenderHtml tagsStyles={(styles.body, TabStyles)} source={source} />
-        {/* 
-        {props.tags === undefined || props.tags.length === 0 ? (
+
+        {props.tags == 0 ? (
           <Text>no Tags</Text>
         ) : (
           <View style={styles.tagsBody}>
             <Text style={styles.tagLabel}>tags: </Text>
             {props.tags.map((item) => {
               <TouchableOpacity onPress={() => console.log("tag")}>
-                <Text style={styles.tags}>{item.name}</Text>
+                <Text style={styles.tags}>{item.slug}</Text>
               </TouchableOpacity>;
             })}
-            <Text style={styles.tags}>ola</Text>
           </View>
-        )} */}
+        )}
 
         <Pub />
         <Pub />

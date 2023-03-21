@@ -1,21 +1,27 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity, SafeAreaView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  SafeAreaView,
+} from "react-native";
 import { globalStyles } from "../styles/global";
 
-
-export default function Header({navigation}) {
+export default function Header({ navigation }) {
   return (
-    <SafeAreaView>
-      <TouchableOpacity
-        onPress={() => navigation.navigate("HOME")}
-        style={styles.header}
-      >
+    <TouchableOpacity
+      onPress={() => navigation.navigate("HOME")}
+      style={styles.header}
+    >
+      <SafeAreaView>
         <Image
           style={styles.tinyLogo}
           source={require("../assets/dasboas.png")}
         />
-      </TouchableOpacity>
-    </SafeAreaView>
+      </SafeAreaView>
+    </TouchableOpacity>
   );
 }
 
