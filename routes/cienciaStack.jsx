@@ -19,6 +19,7 @@ export default function CienciaStack() {
         options={{
           headerShown: true,
           headerBackTitleVisible: false,
+          title: 'Ciência'
         }}
         screenOptions={{
           animationTypeForReplace: "push",

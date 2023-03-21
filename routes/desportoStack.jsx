@@ -19,6 +19,7 @@ export default function DesportoStack() {
         options={{
           headerShown: true,
           headerBackTitleVisible: false,
+          title:'desporto'
         }}
         screenOptions={{
           animationTypeForReplace: "push",

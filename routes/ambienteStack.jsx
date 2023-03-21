@@ -19,6 +19,7 @@ export default function AmbienteStack() {
         options={{
           headerShown: true,
           headerBackTitleVisible: false,
+          title: "Ambiente"
         }}
         screenOptions={{
           animationTypeForReplace: "push",

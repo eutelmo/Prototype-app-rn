@@ -20,6 +20,8 @@ export default function HomeStack() {
         options={{
           headerShown: true,
           headerBackTitleVisible: false,
+          tabBarStyle: { display: "none" },
+          title: 'Home'
         }}
         screenOptions={{
           animationTypeForReplace: "push",

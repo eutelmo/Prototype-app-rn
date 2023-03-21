@@ -7,9 +7,9 @@ const Stack = createStackNavigator();
 
 export default function EstilosStack() {
   return (
-    <Stack.Navigator initialRouteName="Estilos">
+    <Stack.Navigator initialRouteName="Category">
       <Stack.Screen
-        name="Estilos"
+        name="Category"
         component={Category}
         options={{ headerShown: false }}
       />
@@ -19,6 +19,7 @@ export default function EstilosStack() {
         options={{
           headerShown: true,
           headerBackTitleVisible: false,
+          title: 'Estilos de Vida'
         }}
         screenOptions={{
           animationTypeForReplace: "push",

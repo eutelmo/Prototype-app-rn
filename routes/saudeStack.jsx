@@ -19,6 +19,7 @@ export default function SaudeStack() {
         options={{
           headerShown: true,
           headerBackTitleVisible: false,
+          title: 'Saude'
         }}
         screenOptions={{
           animationTypeForReplace: "push",

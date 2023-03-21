@@ -7,9 +7,9 @@ const Stack = createStackNavigator();
 
 export default function GastronomiaStack() {
   return (
-    <Stack.Navigator initialRouteName="Gastronomian">
+    <Stack.Navigator initialRouteName="Gastronomia">
       <Stack.Screen
-        name="Gastronomian"
+        name="Gastronomia"
         component={Category}
         options={{ headerShown: false }}
       />
@@ -19,6 +19,7 @@ export default function GastronomiaStack() {
         options={{
           headerShown: true,
           headerBackTitleVisible: false,
+          title: 'Gastronomia'
         }}
         screenOptions={{
           animationTypeForReplace: "push",

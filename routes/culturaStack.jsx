@@ -19,6 +19,7 @@ export default function CulturaStack() {
         options={{
           headerShown: true,
           headerBackTitleVisible: false,
+          title: 'Saúde'
         }}
         screenOptions={{
           animationTypeForReplace: "push",

@@ -29,7 +29,7 @@ export default function Cultura({ navigation }) {
 
   useEffect(() => {
     getAll();
-  });
+  }, []);
   return (
     <View style={globalStyles.skContainer}>
       <Text style={globalStyles.titleCategory}>Cultura</Text>

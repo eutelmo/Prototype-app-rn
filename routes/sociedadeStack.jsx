@@ -19,6 +19,7 @@ export default function SociedadeStack() {
         options={{
           headerShown: true,
           headerBackTitleVisible: false,
+          title: 'Sociedade'
         }}
         screenOptions={{
           animationTypeForReplace: "push",
