@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  StyleSheet,
-  View,
-  FlatList,
-} from "react-native";
+import { StyleSheet, View, FlatList } from "react-native";
 
 import { globalStyles } from "../styles/global";
 import { API_TOKEN, API_KEY } from "@env";
@@ -34,6 +30,8 @@ export default function Saude({ navigation }) {
   }, []);
   return (
     <View style={globalStyles.skContainer}>
+      <Text style={globalStyles.titleCategory}>Saude</Text>
+
       <FlatList
         data={posts}
         keyExtractor={(item) => String(item.id)}

@@ -32,6 +32,7 @@ export default function Cultura({ navigation }) {
   });
   return (
     <View style={globalStyles.skContainer}>
+        <Text style={globalStyles.titleCategory}>Cultura</Text>
       <FlatList
         data={posts}
         keyExtractor={(item) => String(item.id)}

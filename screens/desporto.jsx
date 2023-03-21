@@ -32,6 +32,7 @@ export default function Desporto({ navigation }) {
   }, []);
   return (
     <View style={globalStyles.skContainer}>
+      <Text style={globalStyles.titleCategory}>Desporto</Text>
       <FlatList
         data={posts}
         keyExtractor={(item) => String(item.id)}

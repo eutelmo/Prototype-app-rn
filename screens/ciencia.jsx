@@ -31,6 +31,7 @@ export default function Ciencia({ navigation }) {
   }, []);
   return (
     <View style={globalStyles.skContainer}>
+      <Text style={globalStyles.titleCategory}>Ciencias</Text>
       <FlatList
         data={posts}
         keyExtractor={(item) => String(item.id)}

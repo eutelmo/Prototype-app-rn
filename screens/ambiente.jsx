@@ -34,6 +34,7 @@ export default function Ambiente({ navigation }) {
   }, []);
   return (
     <View style={globalStyles.skContainer}>
+          <Text style={globalStyles.titleCategory}>Ambiente</Text>
       <FlatList
         data={posts}
         keyExtractor={(item) => String(item.id)}
