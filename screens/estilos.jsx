@@ -30,9 +30,10 @@ export default function Estilos({ navigation }) {
   }, []);
   return (
     <SafeAreaView>
-      <View style={globalStyles.skContainer}>
+      <View>
         <Text style={globalStyles.titleCategory}>Estilos de Vida</Text>
         <FlatList
+          style={globalStyles.skContainer}
           data={posts}
           keyExtractor={({ item, index }) => index}
           renderItem={({ item }) => (

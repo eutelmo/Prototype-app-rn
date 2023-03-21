@@ -54,11 +54,11 @@ export default function ArticleOpen(props) {
         ) : (
           <View style={styles.tagsBody}>
             <Text style={styles.tagLabel}>tags: </Text>
-            {props.tags.map((item) => {
+            {/* {props.tags.map((item) => {
               <TouchableOpacity onPress={() => console.log("tag")}>
                 <Text style={styles.tags}>{item.slug}</Text>
               </TouchableOpacity>;
-            })}
+            })} */}
           </View>
         )}
 

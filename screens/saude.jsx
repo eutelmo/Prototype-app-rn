@@ -30,12 +30,15 @@ export default function Saude({ navigation }) {
     getAll();
   }, []);
   return (
-      <View style={globalStyles.skContainer}>
-        <Text style={globalStyles.titleCategory}>Saude</Text>
-        <SafeAreaView>
+
+      <SafeAreaView>
         <FlatList
+          style={globalStyles.skContainer}
           data={posts}
           keyExtractor={({ item, index }) => index}
+          ListHeaderComponent={
+            <Text style={globalStyles.titleCategory}>Saude</Text>
+          }
           renderItem={({ item }) => (
             <HC008
               img={item.baseUrl + "/" + item.l10n[0].image}
@@ -50,8 +53,8 @@ export default function Saude({ navigation }) {
           onEndReachedThreshold={0.1}
           ListFooterComponent={<FooterLoading Loading={isLoading} />}
         />
-    </SafeAreaView>
-      </View>
+      </SafeAreaView>
+
   );
 }
 const styles = StyleSheet.create({});
