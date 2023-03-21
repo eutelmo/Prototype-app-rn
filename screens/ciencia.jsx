@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View, FlatList } from "react-native";
+import { StyleSheet, View, FlatList, Text } from "react-native";
 
 import { globalStyles } from "../styles/global";
 import { API_TOKEN, API_KEY } from "@env";
@@ -34,7 +34,8 @@ export default function Ciencia({ navigation }) {
       <Text style={globalStyles.titleCategory}>Ciencias</Text>
       <FlatList
         data={posts}
-        keyExtractor={(item) => String(item.id)}
+        keyExtractor={({ item, index }) => index}
+
         renderItem={({ item }) => (
           <HC008
             img={item.baseUrl + "/" + item.l10n[0].image}

@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  View,
-  FlatList,
-} from "react-native";
+import { StyleSheet, View, FlatList, Text } from "react-native";
 
 import { globalStyles } from "../styles/global";
 
@@ -40,7 +37,7 @@ export default function Home({ navigation }) {
     <View style={globalStyles.skContainer}>
       <FlatList
         data={posts}
-        keyExtractor={(item) => String(item.id)}
+        keyExtractor={({ item, index }) => index}
         renderItem={({ item, index }) =>
           index >= 1 ? (
             <HC008
@@ -69,4 +66,3 @@ export default function Home({ navigation }) {
     </View>
   );
 }
-

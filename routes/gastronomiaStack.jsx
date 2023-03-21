@@ -1,15 +1,15 @@
 import { createStackNavigator } from "@react-navigation/stack";
 
-import Category from "../screens/ciencia";
+import Category from "../screens/gastronomia";
 import Open from "../screens/openArticle";
 
 const Stack = createStackNavigator();
 
-export default function CienciaStack() {
+export default function GastronomiaStack() {
   return (
-    <Stack.Navigator initialRouteName="Category">
+    <Stack.Navigator initialRouteName="Gastronomian">
       <Stack.Screen
-        name="Category"
+        name="Gastronomian"
         component={Category}
         options={{ headerShown: false }}
       />

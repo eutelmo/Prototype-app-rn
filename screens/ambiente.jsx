@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View, FlatList } from "react-native";
+import { StyleSheet, View, FlatList, Text } from "react-native";
 
 import { globalStyles } from "../styles/global";
 
@@ -22,7 +22,6 @@ export default function Ambiente({ navigation }) {
     );
 
     const data = await allPost.json();
-    
 
     setPosts([...posts, ...data.data]);
     setPage(page + 1);
@@ -34,10 +33,11 @@ export default function Ambiente({ navigation }) {
   }, []);
   return (
     <View style={globalStyles.skContainer}>
-          <Text style={globalStyles.titleCategory}>Ambiente</Text>
+      <Text style={globalStyles.titleCategory}>Ambiente</Text>
       <FlatList
         data={posts}
-        keyExtractor={(item) => String(item.id)}
+        keyExtractor={({ item, index }) => index}
+
         renderItem={({ item }) => (
           <HC008
             img={item.baseUrl + "/" + item.l10n[0].image}

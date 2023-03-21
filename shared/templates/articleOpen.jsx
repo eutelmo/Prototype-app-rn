@@ -10,12 +10,12 @@ import {
 } from "react-native";
 import RenderHtml from "react-native-render-html";
 
+import { globalStyles } from "../../styles/global";
+
 import Pub from "../pub";
 
 export default function ArticleOpen(props) {
-  // const body = props.body;
-
-  console.log(props.tags[0].name);
+   console.log(props);
 
   const source = {
     html: `${props.body}`,
@@ -38,7 +38,7 @@ export default function ArticleOpen(props) {
 
   return (
     <>
-      <ScrollView>
+      <ScrollView style={globalStyles.skContainer}>
         <Text style={styles.title}>{props.title}</Text>
         <Image style={styles.Image} src={props.image} />
         <View style={styles.readDateBox}>
@@ -48,21 +48,20 @@ export default function ArticleOpen(props) {
         <Text style={styles.info}>{props.description}</Text>
         {/* <Text style={styles.body}>{props.body}</Text> */}
         <RenderHtml tagsStyles={(styles.body, TabStyles)} source={source} />
-
+        {/* 
         {props.tags === undefined || props.tags.length === 0 ? (
           <Text>no Tags</Text>
         ) : (
           <View style={styles.tagsBody}>
             <Text style={styles.tagLabel}>tags: </Text>
-            {props.tags.map((item) =>{
+            {props.tags.map((item) => {
               <TouchableOpacity onPress={() => console.log("tag")}>
-                  <Text style={styles.tags}>{item.name}</Text>
-                </TouchableOpacity>
+                <Text style={styles.tags}>{item.name}</Text>
+              </TouchableOpacity>;
             })}
-                  <Text style={styles.tags}>ola</Text>
-            
+            <Text style={styles.tags}>ola</Text>
           </View>
-        )}
+        )} */}
 
         <Pub />
         <Pub />

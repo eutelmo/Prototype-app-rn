@@ -7,9 +7,9 @@ const Stack = createStackNavigator();
 
 export default function DesportoStack() {
   return (
-    <Stack.Navigator initialRouteName="Category">
+    <Stack.Navigator initialRouteName="Desporto">
       <Stack.Screen
-        name="Category"
+        name="Desporto"
         component={Category}
         options={{ headerShown: false }}
       />

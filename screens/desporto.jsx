@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View, FlatList } from "react-native";
+import { StyleSheet, View, FlatList, Text } from "react-native";
 
 import { globalStyles } from "../styles/global";
 import { APP_NAME, API_TOKEN, API_KEY } from "@env";
@@ -35,7 +35,8 @@ export default function Desporto({ navigation }) {
       <Text style={globalStyles.titleCategory}>Desporto</Text>
       <FlatList
         data={posts}
-        keyExtractor={(item) => String(item.id)}
+        keyExtractor={({ item, index }) => index}
+
         renderItem={({ item }) => (
           <HC008
             img={item.baseUrl + "/" + item.l10n[0].image}
