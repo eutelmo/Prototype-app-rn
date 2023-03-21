@@ -4,11 +4,13 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Category from "../screens/home";
 import Open from "../screens/openArticle";
 
+import StackHeader from "../shared/stackHeader";
+
 const Stack = createStackNavigator();
 
 export default function HomeStack() {
   return (
-    <Stack.Navigator initialRouteName="Home">
+    <Stack.Navigator initialRouteName="Home"  screenOptions={{  header: StackHeader}}>
       <Stack.Screen
         name="Home"
         component={Category}
@@ -22,6 +24,7 @@ export default function HomeStack() {
           headerBackTitleVisible: false,
           tabBarStyle: { display: "none" },
           title: 'Home'
+
         }}
         screenOptions={{
           animationTypeForReplace: "push",

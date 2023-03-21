@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View, FlatList, Text } from "react-native";
+import { StyleSheet, View, FlatList, Text, SafeAreaView } from "react-native";
 
 import { globalStyles } from "../styles/global";
 import { APP_NAME, API_TOKEN, API_KEY } from "@env";
@@ -31,27 +31,28 @@ export default function Cultura({ navigation }) {
     getAll();
   }, []);
   return (
-    <View style={globalStyles.skContainer}>
-      <Text style={globalStyles.titleCategory}>Cultura</Text>
-      <FlatList
-        data={posts}
-        keyExtractor={({ item, index }) => index}
-
-        renderItem={({ item }) => (
-          <HC008
-            img={item.baseUrl + "/" + item.l10n[0].image}
-            category={item.dossiers[0].managementName}
-            title={item.l10n[0].title}
-            date={item.l10n[0].publishedAt}
-            readTime={item.l10n[0].readTime}
-            onPress={() => navigation.navigate("openArticle", { post: item })}
-          />
-        )}
-        onEndReached={getAll}
-        onEndReachedThreshold={0.1}
-        ListFooterComponent={<FooterLoading Loading={isLoading} />}
-      />
-    </View>
+    <SafeAreaView>
+      <View style={globalStyles.skContainer}>
+        <Text style={globalStyles.titleCategory}>Cultura</Text>
+        <FlatList
+          data={posts}
+          keyExtractor={({ item, index }) => index}
+          renderItem={({ item }) => (
+            <HC008
+              img={item.baseUrl + "/" + item.l10n[0].image}
+              category={item.dossiers[0].managementName}
+              title={item.l10n[0].title}
+              date={item.l10n[0].publishedAt}
+              readTime={item.l10n[0].readTime}
+              onPress={() => navigation.navigate("openArticle", { post: item })}
+            />
+          )}
+          onEndReached={getAll}
+          onEndReachedThreshold={0.1}
+          ListFooterComponent={<FooterLoading Loading={isLoading} />}
+        />
+      </View>
+    </SafeAreaView>
   );
 }
 

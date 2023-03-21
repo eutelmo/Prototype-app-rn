@@ -22,14 +22,16 @@ export default function OpenArticle({ route }) {
   const { post } = route.params;
 
   return (
-    <ArticleOpen
-      title={post.l10n[0].title}
-      image={post.baseUrl + "/" + post.l10n[0].image}
-      read={post.l10n[0].readTime}
-      date={post.l10n[0].publishedAt}
-      description={post.l10n[0].description}
-      body={post.l10n[0].bodies[0].text}
-      tags={post.l10n[0].tags}
-    />
+    <SafeAreaView>
+      <ArticleOpen
+        title={post.l10n[0].title}
+        image={post.baseUrl + "/" + post.l10n[0].image}
+        read={post.l10n[0].readTime}
+        date={post.l10n[0].publishedAt}
+        description={post.l10n[0].description}
+        body={post.l10n[0].bodies[0].text}
+        tags={post.l10n[0].tags}
+      />
+    </SafeAreaView>
   );
 }

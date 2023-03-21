@@ -3,11 +3,16 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Category from "../screens/gastronomia";
 import Open from "../screens/openArticle";
 
+import StackHeader from "../shared/stackHeader";
+
 const Stack = createStackNavigator();
 
 export default function GastronomiaStack() {
   return (
-    <Stack.Navigator initialRouteName="Gastronomia">
+    <Stack.Navigator
+      initialRouteName="Gastronomia"
+      screenOptions={{ header: StackHeader }}
+    >
       <Stack.Screen
         name="Gastronomia"
         component={Category}
@@ -19,7 +24,7 @@ export default function GastronomiaStack() {
         options={{
           headerShown: true,
           headerBackTitleVisible: false,
-          title: 'Gastronomia'
+          title: "Gastronomia",
         }}
         screenOptions={{
           animationTypeForReplace: "push",

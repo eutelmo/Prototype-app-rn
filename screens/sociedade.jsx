@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View, FlatList, Text } from "react-native";
+import { StyleSheet, View, FlatList, Text, SafeAreaView } from "react-native";
 
 import { globalStyles } from "../styles/global";
 import { APP_NAME, API_TOKEN, API_KEY } from "@env";
@@ -12,9 +12,11 @@ export default function Sociedade() {
   const [error, setError] = useState();
 
   return (
-    <ScrollView style={globalStyles.skContainer}>
-      <Text>Sociedade</Text>
-    </ScrollView>
+    <SafeAreaView>
+      <ScrollView style={globalStyles.skContainer}>
+        <Text>Sociedade</Text>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 

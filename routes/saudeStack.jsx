@@ -3,11 +3,16 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Category from "../screens/saude";
 import Open from "../screens/openArticle";
 
+import StackHeader from "../shared/stackHeader";
+
 const Stack = createStackNavigator();
 
 export default function SaudeStack() {
   return (
-    <Stack.Navigator initialRouteName="Saude">
+    <Stack.Navigator
+      initialRouteName="Saude"
+      screenOptions={{ header: StackHeader }}
+    >
       <Stack.Screen
         name="Saude"
         component={Category}
@@ -19,7 +24,7 @@ export default function SaudeStack() {
         options={{
           headerShown: true,
           headerBackTitleVisible: false,
-          title: 'Saude'
+          title: "Saude",
         }}
         screenOptions={{
           animationTypeForReplace: "push",
