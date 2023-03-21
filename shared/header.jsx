@@ -7,7 +7,7 @@ export default function Header({navigation}) {
   return (
     <SafeAreaView>
       <TouchableOpacity
-        onPress={() => navigation.navigate("home")}
+        onPress={() => navigation.navigate("HOME")}
         style={styles.header}
       >
         <Image

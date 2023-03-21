@@ -1,15 +1,18 @@
+import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import Category from "../screens/sociedade";
+import Category from "../screens/home";
 import Open from "../screens/openArticle";
+
+import StackHeader from "../shared/stackHeader";
 
 const Stack = createStackNavigator();
 
-export default function SociedadeStack() {
+export default function HomeStack() {
   return (
-    <Stack.Navigator initialRouteName="Category">
+    <Stack.Navigator initialRouteName="Home"  screenOptions={{  header: StackHeader}}>
       <Stack.Screen
-        name="Category"
+        name="Home"
         component={Category}
         options={{ headerShown: false }}
       />
@@ -19,6 +22,9 @@ export default function SociedadeStack() {
         options={{
           headerShown: true,
           headerBackTitleVisible: false,
+          tabBarStyle: { display: "none" },
+          title: 'Home'
+
         }}
         screenOptions={{
           animationTypeForReplace: "push",

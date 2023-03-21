@@ -1,15 +1,20 @@
 import { createStackNavigator } from "@react-navigation/stack";
 
-import Category from "../screens/saude";
+import Category from "../screens/desporto";
 import Open from "../screens/openArticle";
+
+import StackHeader from "../shared/stackHeader";
 
 const Stack = createStackNavigator();
 
-export default function SaudeStack() {
+export default function DesportoStack() {
   return (
-    <Stack.Navigator initialRouteName="Category">
+    <Stack.Navigator
+      initialRouteName="Desporto"
+      screenOptions={{ header: StackHeader }}
+    >
       <Stack.Screen
-        name="Category"
+        name="Desporto"
         component={Category}
         options={{ headerShown: false }}
       />
@@ -19,6 +24,7 @@ export default function SaudeStack() {
         options={{
           headerShown: true,
           headerBackTitleVisible: false,
+          title: "desporto",
         }}
         screenOptions={{
           animationTypeForReplace: "push",

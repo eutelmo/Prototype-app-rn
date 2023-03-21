@@ -28,7 +28,7 @@ export default function ITC005(props) {
           style={{ width: 348, height: 189 }}
         />
       ) : (
-        <TouchableOpacity onPress={() => console.log(props.onPress)}>
+        <TouchableOpacity onPress={props.onPress}>
           <ImageBackground source={image} style={styles.imageBackground}>
             <View style={styles.textBox}>
               <Text style={styles.category}>{props.category}</Text>

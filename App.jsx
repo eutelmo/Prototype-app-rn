@@ -46,7 +46,7 @@ export default function App() {
     return (
  
       <Tab.Navigator
-        initialRouteName="home"
+        initialRouteName="Home"
         tabBarPosition="top"
         keyboardDismissMode="on-drag"
         tabBarOptions={{
@@ -63,7 +63,7 @@ export default function App() {
           tabBarScrollEnabled: true,
         }}
       >
-        <Tab.Screen name="home" component={Home} />
+        <Tab.Screen name="HOME" component={Home} />
         <Tab.Screen name="GASTRONOMIA" component={Gastroniomia} />
         <Tab.Screen name="ESTILOS DE VIdA" component={Estilos} />
         {/* <Tab.Screen name="SOCIEDADE" component={Sociedade} /> */}

@@ -1,24 +1,30 @@
 import { createStackNavigator } from "@react-navigation/stack";
 
-import Ambiente from "../screens/ambiente";
-import AmbienteOpen from "../screens/openArticle";
+import Category from "../screens/gastronomia";
+import Open from "../screens/openArticle";
+
+import StackHeader from "../shared/stackHeader";
 
 const Stack = createStackNavigator();
 
-export default function AmbienteStack() {
+export default function GastronomiaStack() {
   return (
-    <Stack.Navigator initialRouteName="Category">
+    <Stack.Navigator
+      initialRouteName="Gastronomia"
+      screenOptions={{ header: StackHeader }}
+    >
       <Stack.Screen
-        name="Category"
-        component={Ambiente}
+        name="Gastronomia"
+        component={Category}
         options={{ headerShown: false }}
       />
       <Stack.Screen
         name="openArticle"
-        component={AmbienteOpen}
+        component={Open}
         options={{
           headerShown: true,
           headerBackTitleVisible: false,
+          title: "Gastronomia",
         }}
         screenOptions={{
           animationTypeForReplace: "push",
