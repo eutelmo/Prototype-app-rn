@@ -44,7 +44,6 @@ export default function App() {
   const Tab = createMaterialTopTabNavigator();
   const TabsNavigate = () => {
     return (
- 
       <Tab.Navigator
         initialRouteName="Home"
         tabBarPosition="top"
@@ -73,7 +72,6 @@ export default function App() {
         <Tab.Screen name="SAÚDE" component={Saude} />
         <Tab.Screen name="AMBIENTE" component={Ambiente} />
       </Tab.Navigator>
-  
     );
   };
 
@@ -93,7 +91,7 @@ export default function App() {
             tabBarPressColor: "#333",
             tabBarScrollEnabled: false,
             swipeEnabled: true,
-            header: Header
+            header: Header,
           }}
         >
           <Stack.Screen name="Tabs" component={TabsNavigate} />
