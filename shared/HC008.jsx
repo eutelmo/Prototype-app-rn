@@ -3,23 +3,13 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { globalStyles } from "../styles/global";
 
 import { FadeLoading } from "react-native-fade-loading";
+import moment from "moment";
 
 export default function HC008(props) {
-  const Open = () => {
-    //Do a function when click on PubBox
-    console.log("Open");
-  };
+  const date = props.date;
+  const formattedDate = moment(date, "YYYY/MM/DD").format("DD/MM/YYYY");
 
   const [loading, setLoading] = useState(false);
-
-  const options = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  const d = new Date(props.date);
-
-  const dataFormated = d.toLocaleString("en-US", options);
 
   return (
     <>
@@ -52,7 +42,7 @@ export default function HC008(props) {
             <Text style={styles.category}>{props.category}</Text>
             <Text style={styles.title}>{props.title}</Text>
             <View style={styles.dateReadBox}>
-              <Text style={styles.infos}>{props.date}</Text>
+              <Text style={styles.infos}>{formattedDate}</Text>
               <Text style={styles.infos}>Read: {props.readTime}min</Text>
             </View>
           </View>

@@ -9,11 +9,12 @@ import {
 
 import { FadeLoading } from "react-native-fade-loading";
 
+import moment from 'moment';
+
 export default function ITC005(props) {
-  const Open = () => {
-    //Do a function when click on PubBox
-    console.log("Open");
-  };
+  const date = props.date;
+  const formattedDate = moment(date, "YYYY/MM/DD").format("DD/MM/YYYY");
+
   const [loading, setLoading] = useState(false);
 
   const image = { uri: props.img };
@@ -34,7 +35,7 @@ export default function ITC005(props) {
               <Text style={styles.category}>{props.category}</Text>
               <Text style={styles.title}>{props.title}</Text>
               <View style={styles.dateReadBox}>
-                <Text style={styles.infos}>{props.date}</Text>
+                <Text style={styles.infos}>{formattedDate}</Text>
                 <Text style={styles.infos}>Read: {props.readTime}min</Text>
               </View>
             </View>
