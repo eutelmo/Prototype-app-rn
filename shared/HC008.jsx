@@ -13,29 +13,7 @@ export default function HC008(props) {
 
   return (
     <>
-      {loading ? (
-        <>
-          <FadeLoading
-            primaryColor="gray"
-            secondaryColor="lightgray"
-            duration={5000}
-            style={{ width: 348, height: 189 }}
-          />
-
-          <FadeLoading
-            primaryColor="gray"
-            secondaryColor="lightgray"
-            duration={5000}
-            style={{ width: "30%", height: 16 }}
-          />
-          <FadeLoading
-            primaryColor="gray"
-            secondaryColor="lightgray"
-            duration={5000}
-            style={{ width: 348, height: 26 }}
-          />
-        </>
-      ) : (
+     
         <TouchableOpacity style={styles.hc008} onPress={props.onPress}>
           <Image style={styles.imgBox} src={props.img} />
           <View style={styles.textBox}>
@@ -47,7 +25,7 @@ export default function HC008(props) {
             </View>
           </View>
         </TouchableOpacity>
-      )}
+     
     </>
   );
 }
