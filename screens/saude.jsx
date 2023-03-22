@@ -19,23 +19,26 @@ export default function Saude({ navigation }) {
     const allPost = await fetch(
       `https://posts2-api.global.ssl.fastly.net/1/dossier/5/posts?apikey=${API_KEY}&apitoken=${API_TOKEN}&per_page=12&page=${page}&include=bodies,tags,photos,albums,authors,labels,audios,documents,dossiers,collections&filter[isoLanguage]=pt`
     );
-
     const data = await allPost.json();
+
+    setPosts([...posts, ...data.data]);
+    setPage(page + 1);
     setIsLoading(false);
-    setPosts(data);
   };
 
   useEffect(() => {
     getAll();
   }, []);
   return (
-    <SafeAreaView>
-      <View style={globalStyles.skContainer}>
-        <Text style={globalStyles.titleCategory}>Saude</Text>
 
+      <SafeAreaView>
         <FlatList
+          style={globalStyles.skContainer}
           data={posts}
           keyExtractor={({ item, index }) => index}
+          ListHeaderComponent={
+            <Text style={globalStyles.titleCategory}>Saude</Text>
+          }
           renderItem={({ item }) => (
             <HC008
               img={item.baseUrl + "/" + item.l10n[0].image}
@@ -50,8 +53,8 @@ export default function Saude({ navigation }) {
           onEndReachedThreshold={0.1}
           ListFooterComponent={<FooterLoading Loading={isLoading} />}
         />
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+
   );
 }
 const styles = StyleSheet.create({});

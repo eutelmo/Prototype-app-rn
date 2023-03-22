@@ -31,26 +31,27 @@ export default function Ciencia({ navigation }) {
   }, []);
   return (
     <SafeAreaView>
-      <View style={globalStyles.skContainer}>
-        <Text style={globalStyles.titleCategory}>Ciencias</Text>
-        <FlatList
-          data={posts}
-          keyExtractor={({ item, index }) => index}
-          renderItem={({ item }) => (
-            <HC008
-              img={item.baseUrl + "/" + item.l10n[0].image}
-              category={item.dossiers[0].managementName}
-              title={item.l10n[0].title}
-              date={item.l10n[0].publishedAt}
-              readTime={item.l10n[0].readTime}
-              onPress={() => navigation.navigate("openArticle", { post: item })}
-            />
-          )}
-          onEndReached={getAll}
-          onEndReachedThreshold={0.1}
-          ListFooterComponent={<FooterLoading Loading={isLoading} />}
-        />
-      </View>
+      <FlatList
+        style={globalStyles.skContainer}
+        data={posts}
+        keyExtractor={({ item, index }) => index}
+        ListHeaderComponent={
+          <Text style={globalStyles.titleCategory}>Ciencias</Text>
+        }
+        renderItem={({ item }) => (
+          <HC008
+            img={item.baseUrl + "/" + item.l10n[0].image}
+            category={item.dossiers[0].managementName}
+            title={item.l10n[0].title}
+            date={item.l10n[0].publishedAt}
+            readTime={item.l10n[0].readTime}
+            onPress={() => navigation.navigate("openArticle", { post: item })}
+          />
+        )}
+        onEndReached={getAll}
+        onEndReachedThreshold={0.1}
+        ListFooterComponent={<FooterLoading Loading={isLoading} />}
+      />
     </SafeAreaView>
   );
 }
