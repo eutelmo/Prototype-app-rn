@@ -6,10 +6,11 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
 import { FadeLoading } from "react-native-fade-loading";
 
-import moment from 'moment';
+import moment from "moment";
 
 export default function ITC005(props) {
   const date = props.date;
@@ -31,6 +32,11 @@ export default function ITC005(props) {
       ) : (
         <TouchableOpacity onPress={props.onPress}>
           <ImageBackground source={image} style={styles.imageBackground}>
+            <LinearGradient
+              
+              colors={['#000511', 'transparent']}
+              style={styles.gradient}
+            />
             <View style={styles.textBox}>
               <Text style={styles.category}>{props.category}</Text>
               <Text style={styles.title}>{props.title}</Text>
@@ -51,6 +57,15 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 189,
     marginBottom: 10,
+  },
+  gradient: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: 100,
+    zIndex: 0,
+    transform: [{ rotate: '180deg'}]
   },
   textBox: {
     height: "100%",
