@@ -10,7 +10,10 @@ const Stack = createStackNavigator();
 
 export default function HomeStack() {
   return (
-    <Stack.Navigator initialRouteName="Home"  screenOptions={{  header: StackHeader}}>
+    <Stack.Navigator
+      initialRouteName="Home"
+      screenOptions={{ header: StackHeader }}
+    >
       <Stack.Screen
         name="Home"
         component={Category}
@@ -22,13 +25,12 @@ export default function HomeStack() {
         options={{
           headerShown: true,
           headerBackTitleVisible: false,
-          tabBarStyle: { display: "none" },
-          title: 'Home'
-
+          title: "Home",
         }}
         screenOptions={{
           animationTypeForReplace: "push",
         }}
+        navigationOptions={{ tabBarVisible: false }}
       />
     </Stack.Navigator>
   );

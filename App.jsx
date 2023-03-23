@@ -1,12 +1,5 @@
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import {
-  NavigationContainer,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-} from "@react-navigation/native";
-
-import { WebView } from "react-native-webview";
+import { NavigationContainer } from "@react-navigation/native";
 
 //Fonts Import
 import { useFonts } from "expo-font";
@@ -26,11 +19,9 @@ import Desporto from "./routes/desportoStack";
 import Estilos from "./routes/estilosStack";
 import Gastroniomia from "./routes/gastronomiaStack";
 import Saude from "./routes/saudeStack";
-import Sociedade from "./routes/sociedadeStack";
 
 // import Header
 import Header from "./shared/header";
-import { globalStyles } from "./styles/global";
 
 export default function App() {
   //Fonts Import loader
@@ -48,24 +39,18 @@ export default function App() {
         initialRouteName="Home"
         tabBarPosition="top"
         keyboardDismissMode="on-drag"
-        tabBarOptions={{
-          labelStyle: {
-            fontSize: 14,
-            tabStyle: "#06EA80",
-          },
-          indicatorStyle: { backgroundColor: "#06EA80" },
-          activeTintColor: "#06EA80",
-          inactiveTintColor: "#333",
-          inactiveBackgroundColor: { backgroundColor: "#CECECE" },
-        }}
         screenOptions={{
           tabBarScrollEnabled: true,
+          tabBarIndicatorStyle: {
+            backgroundColor: "#06EA80",
+          },
+          tabBarActiveTintColor: "#06EA80",
+          tabBarInactiveTintColor: "#333",
         }}
       >
         <Tab.Screen name="HOME" component={Home} />
         <Tab.Screen name="GASTRONOMIA" component={Gastroniomia} />
         <Tab.Screen name="ESTILOS DE VIdA" component={Estilos} />
-        {/* <Tab.Screen name="SOCIEDADE" component={Sociedade} /> */}
         <Tab.Screen name="CULTURA" component={Cultura} />
         <Tab.Screen name="DESPORTO" component={Desporto} />
         <Tab.Screen name="CIÊNCIA" component={Ciencia} />
@@ -83,8 +68,8 @@ export default function App() {
   }
 
   return (
-    <SafeAreaProvider >
-      <NavigationContainer >
+    <SafeAreaProvider>
+      <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
             tabBarAndroidRipple: { borderless: false },

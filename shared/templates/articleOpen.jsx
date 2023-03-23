@@ -9,13 +9,15 @@ import {
   FlatList,
 } from "react-native";
 import RenderHtml from "react-native-render-html";
+import moment from "moment";
 
 import { globalStyles } from "../../styles/global";
 
 import Pub from "../pub";
 
 export default function ArticleOpen(props) {
-  console.log(props.tags);
+  const date = props.date;
+  const formattedDate = moment(date, "YYYY/MM/DD").format("DD/MM/YYYY");
 
   const source = {
     html: `${props.body}`,
@@ -43,7 +45,7 @@ export default function ArticleOpen(props) {
         <Image style={styles.Image} src={props.image} />
         <View style={styles.readDateBox}>
           <Text style={styles.readDate}>Leitura: {props.read}min</Text>
-          <Text style={styles.readDate}>{props.date}</Text>
+          <Text style={styles.readDate}>{formattedDate}</Text>
         </View>
         <Text style={styles.info}>{props.description}</Text>
         {/* <Text style={styles.body}>{props.body}</Text> */}
